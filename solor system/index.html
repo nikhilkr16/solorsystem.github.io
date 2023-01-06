@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta>
+
+	<title>Solar_System</title>
+
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png">
+
+
+<style>
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	background-color:#000;
+	overflow: hidden;
+
+}
+
+body{
+	height:100%;
+	top: 0;
+	bottom: 0;
+
+}
+
+.wrapper{
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	margin-top: 200px;
+	perspective: 1000px;
+	perspective-origin: 60% 50%;
+	transform: rotate(-10deg);
+
+}
+
+
+.wrapper > div{
+	position: relative;
+	margin:0 auto;
+	transform-style: preserve-3d;
+	height: 0;
+
+}
+
+.sun{
+	width:1980px;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	height: 201px !important;
+
+}
+
+
+.sun .star{
+	width: 500px;
+	height: 500px;
+	background-size: cover;
+	background: url('img/sun1.gif') no-repeat;
+	border-radius: 250px;
+	margin: 0 auto;
+
+	animation: spinsun 40% infinite linear;
+
+
+}
+
+
+
+@keyframes spinsun{
+	0%{
+		transform: rotate(0);
+	}
+
+	100%{
+		transform: rotate(-360deg);
+	}
+}
+
+
+.planet{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	animation-iteration-count: infinite;
+	overflow: hidden;
+	
+}
+
+
+.shadow{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: transparent url("shadow.png") 0% 0% no-repeat;
+	background-size: cover;
+	border-radius:100%; 
+}
+
+
+
+@keyframes shadow{
+	0%{
+		background-position: 130% 0% ;
+	}
+	33%{
+		background-position: 50% 0% ;
+	}
+	55%{
+		background-position: 0% 0% ;
+	}
+	80%{
+		background-position: -50% 0% ;
+	}
+	100%{
+		background-position: -50% 0% ;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+.mercury{
+	position: absolute;
+	z-index: 2;
+	width: 400px;
+	top: -7.5px;
+	animation: orbitmercury 8s infinite linear;
+}
+
+.mercury .planet{
+	width: 15px;
+	height: 15px;
+	background-image: url("img/mercury1.gif");
+	animation:  anti-spin 8s infinite linear;
+}
+
+.mercury .shadow{ animation: shadow 8s infinite linear; }
+
+@keyframes orbitmercury{
+	0%{
+		z-index: 2;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 2;
+	}
+	50%{
+		z-index: -2;
+	}
+	99%{
+		z-index: -2;
+	}
+	100%{
+		z-index: 2;
+		transform: rotateY(360deg);
+	}
+	
+		
+
+}
+
+
+
+.venus{
+	position: absolute;
+	z-index: 3;
+	width: 506px;
+	top: -19px;
+	animation: orbitvenus 12s infinite linear;
+}
+
+.venus .planet{
+	width: 38px;
+	height: 38px;
+	background-image: url("img/venus1.gif");
+	animation:  anti-spin 15s infinite linear;
+}
+
+.venus .shadow{ animation: shadow 15s infinite linear; }
+
+
+
+@keyframes orbitvenus{
+	0%{
+		z-index: 3;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 3;
+	}
+	50%{
+		z-index: -3;
+	}
+	99%{
+		z-index: -3;
+	}
+	100%{
+		z-index: 3;
+		transform: rotateY(360deg);
+	}
+	
+		
+
+}
+
+
+
+.earth{
+	position: absolute;
+	z-index: 4;
+	width: 610px;
+	top: -20px;
+	animation: orbitearth 20s infinite linear;
+}
+
+.earth .planet{
+	width: 40px;
+	height: 40px;
+	background-image: url("img/earth1.gif");
+	animation:  anti-spin 20s infinite linear;
+}
+
+.earth .shadow{ animation: shadow 20s infinite linear; }
+
+
+
+@keyframes orbitearth{
+	0%{
+		z-index: 4;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 4;
+	}
+	50%{
+		z-index: -4;
+	}
+	99%{
+		z-index: -4;
+	}
+	100%{
+		z-index: 4;
+		transform: rotateY(360deg);
+	}
+	
+		
+
+}
+
+
+
+.mars{
+	position: absolute;
+	z-index: 5;
+	width: 706px;
+	top: -11px;
+	animation: orbitmars 30s infinite linear;
+}
+
+.mars .planet{
+	width: 22px;
+	height: 22px;
+	background-image: url("img/mars.gif");
+	animation:  anti-spin 30s infinite linear;
+}
+
+.mars .shadow{ animation: shadow 30s infinite linear; }
+
+
+
+@keyframes orbitmars{
+	0%{
+		z-index: 5;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 5;
+	}
+	50%{
+		z-index: -5;
+	}
+	99%{
+		z-index: -5;
+	}
+	100%{
+		z-index: 5;
+		transform: rotateY(360deg);
+	}
+	
+		
+
+}
+
+
+.jupiter{
+	position: absolute;
+	z-index: 6;
+	width: 1100px;
+	top: -64px;
+	animation: orbitjupiter 50s infinite linear;
+}
+
+.jupiter .planet{
+	width: 140px;
+	height: 120px;
+	background-image: url("img/jupiter11.gif");
+	animation:  anti-spin 50s infinite linear;
+}
+
+.jupiter .shadow{ animation: shadow 50s infinite linear; }
+
+
+
+@keyframes orbitjupiter{
+	0%{
+		z-index: 6;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 6;
+	}
+	50%{
+		z-index: -6;
+	}
+	99%{
+		z-index: -6;
+	}
+	100%{
+		z-index: 6;
+		transform: rotateY(360deg);
+	}
+	
+		
+}
+
+
+.saturn{
+	position: absolute;
+	z-index: 7;
+	width: 1600px;
+	height: 120px;
+	animation: orbitsaturn 80s infinite linear;
+}
+
+.saturn .planet{
+	width: 240px;
+	height: 120px;
+	background-image: url("img/saturn1.gif");
+	animation:  anti-spin 80s infinite linear;
+}
+
+.saturn  .shadow{ animation: shadow 80s infinite linear; }
+
+
+
+@keyframes orbitsaturn{
+	0%{
+		z-index: 7;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 7;
+	}
+	50%{
+		z-index: -7;
+	}
+	99%{
+		z-index: -7;
+	}
+	100%{
+		z-index: 7;
+		transform: rotateY(360deg);
+	}
+	
+		
+}
+
+
+
+
+.neptune{
+	position: absolute;
+	z-index: 8;
+	width: 2200px;
+	height: 120px;
+	animation: orbitneptune 150s infinite linear;
+}
+
+.neptune .planet{
+	width: 200px;
+	height: 200px;
+	background-image: url("img/neptune.gif");
+	animation:  anti-spin 150s infinite linear;
+}
+
+.neptune  .shadow{ animation: shadow 150s infinite linear; }
+
+
+
+@keyframes orbitneptune{
+	0%{
+		z-index: 8;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 8;
+	}
+	50%{
+		z-index: -8;
+	}
+	99%{
+		z-index: -8;
+	}
+	100%{
+		z-index: 8;
+		transform: rotateY(360deg);
+	}	
+}
+
+
+
+
+
+.uranus{
+	position: absolute;
+	z-index: 9;
+	width: 3500px;
+	height: 120px;
+	animation: orbituranus 200s infinite linear;
+}
+
+.uranus .planet{
+	width: 266px;
+	height: 266px;
+	background-image: url("img/uranus.gif");
+	animation:  anti-spin 200s infinite linear;
+}
+
+.uranus  .shadow{ animation: shadow 200s infinite linear; }
+
+
+
+@keyframes orbituranus{
+	0%{
+		z-index: 9;
+		transform: rotateY(0);
+	}
+
+	49%{
+		z-index: 9;
+	}
+	50%{
+		z-index: -9;
+	}
+	99%{
+		z-index: -9;
+	}
+	100%{
+		z-index: 9;
+		transform: rotateY(360deg);
+	}
+		
+}
+
+
+
+
+
+
+
+@keyframes anti-spin{
+	from{
+		transform: rotateY(0);
+	}
+	to{
+		transform: rotateY(-360deg)
+	}
+}
+
+
+@keyframes anti-spin-rings{
+	from{
+		transform: rotateY(0) rotateX(73deg);
+	}
+	to{
+		transform: rotateY(-360deg) rotateX(73deg);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+		
+
+<div class="wrapper">
+	<div class="sun">
+		<div class="star"></div>
+	</div>
+
+	<div class="mercury">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+
+	<div class="venus">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+	<div class="earth">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+	<div class="mars">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+	<div class="jupiter">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+	<div class="saturn">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+
+	<div class="neptune">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+
+	<div class="uranus">
+		<div class="planet">
+			<div class="shadow"></div>
+		</div>
+	</div>
+
+
+	
+
+
+
+</div>
+
+
+<!-- 
+<div class="col-lg-6 col-md-6 col-12">
+			
+
+</div>
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
